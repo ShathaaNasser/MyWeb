@@ -1,0 +1,238 @@
+/* تعديل رأس الصفحة (Header) */
+header {
+    background-color: #3379be;
+    color: white;
+    padding: 0.5px 1;
+    margin-bottom: 2.5px;
+   
+}
+
+header h1 {
+    font-size: 6em;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;    
+    margin: 0;
+}
+
+body h1 {
+    font-size: 3em;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;   
+    margin: 0;
+}
+
+
+/* شريط التنقل */
+nav ul {
+    list-style: none;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 45px;
+    margin-bottom: 5px;
+    padding: 30px 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+/* General Styles */
+.center-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+body {
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    line-height: 1.5;
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Article */
+article {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+/* Sections inside Article */
+section {
+    margin-bottom: 20px;
+    
+}
+
+/* Paragraph */
+p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.icon-box {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.icon-box i {
+    font-size: 30px;
+    color: #3379be;
+    margin-bottom: 10px;
+}
+
+.icon-box p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.icon-box:hover {
+    background-color: #e6f0fa;
+}
+
+/* Appointment Box */
+.appointment-box {
+    background-color: #fff;
+    padding: 10px 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Form Styling */
+form {
+    display: flexbox;
+    flex-direction: column;
+    text-align: left;
+    
+}
+
+/* Fieldset Styling */
+fieldset {
+    box-sizing: 20px;
+    border: solid #3379be;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* Legend Styling */
+legend {
+    font-size: 16px;
+    font-weight: bold;
+    color: #3379be;
+}
+
+/* Label Styling */
+label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+/* Input, Select, and Textarea Styling */
+input, select, textarea {
+    width: 40%;
+    padding: 5px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Button Styling */
+button {
+    background-color: #3379be;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #285b8a;
+}
+
+/* Section Styling */
+section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* Heading Styling */
+h2 {
+    color: #3379be;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Strong Text Styling */
+strong {
+    font-weight: bold;
+}
+
+
+footer {
+    background-color: #3379be; 
+    color: #ffffff;        
+    padding: 20px 0;
+    margin-top: 30px;
+    
+}
+
+footer .container {
+    max-width: 120px;
+    margin: 0 auto;
+    justify-content: center; 
+    padding: 0 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    justify-content: center; 
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+}
+
+body { font-family: Arial; direction: rtl; text-align: center; }
+.calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin: 20px auto; max-width: 500px; }
+.day { border: 1px solid #ccc; padding: 15px; cursor: pointer; }
+.day:hover { background-color: #f0f0f0; }
+.events { margin-top: 30px; }
+.event { background: #eee; padding: 5px; margin: 5px 0; border-radius: 4px; }
