@@ -1,108 +1,290 @@
-
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>الخط الزمني للفعاليات الثقافية</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f0f0f0;
-      direction: rtl;
-      padding: 50px;
-    }
-
-    .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 6px;
-      background-color: #bbb;
-      top: 0;
-      bottom: 0;
-      right: 50%;
-      margin-right: -3px;
-    }
-
-    .event {
-      padding: 10px 20px;
-      position: relative;
-      background-color: white;
-      border-radius: 8px;
-      width: 45%;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      margin-bottom: 40px;
-    }
-
-    .event::before {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: #2196F3;
-      top: 10px;
-      border: 3px solid #fff;
-      z-index: 1;
-    }
-
-    .event.left {
-      right: 55%;
-    }
-
-    .event.left::before {
-      right: -30px;
-    }
-
-    .event.right {
-    left: 55%;
-    }
-
-    .event.right::before {
-      left: -30px;
-    }
-
-    h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-      color: #333;
-    }
-
-    p {
-      margin: 0;
-      font-size: 14px;
-      color: #555;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline-path {
+            position: relative;
+            margin: 50px 0;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background-color: #aaa;
+            border-radius: 5px;
+        }
+        
+        .timeline-line.top {
+            top: 100px;
+        }
+        
+        .timeline-line.middle {
+            top: 250px;
+        }
+        
+        .timeline-line.bottom {
+            top: 400px;
+        }
+        
+        .timeline-curve-right {
+            position: absolute;
+            right: 0;
+            top: 100px;
+            width: 20px;
+            height: 150px;
+            border-right: 10px solid #aaa;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        
+        .timeline-curve-left {
+            position: absolute;
+            left: 0;
+            top: 250px;
+            width: 20px;
+            height: 150px;
+            border-left: 10px solid #aaa;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        
+        .future-line {
+            position: absolute;
+            right: 30px;
+            top: 250px;
+            width: 5px;
+            height: 150px;
+            border-right: 3px dashed #000;
+        }
+        
+        .timeline-node {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 4px solid white;
+            z-index: 2;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-node:hover {
+            transform: scale(1.2);
+        }
+        
+        .timeline-content {
+            position: absolute;
+            width: 300px;
+            padding-left: 70px;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .timeline-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-date {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-description {
+            font-size: 12px;
+            color: #555;
+        }
+        
+        /* Node positioning */
+        .node1 { left: 30px; top: 80px; background-color: #663300; }
+        .node2 { left: 45%; top: 80px; background-color: #009966; }
+        .node3 { right: 30px; top: 80px; background-color: #009966; }
+        .node4 { left: 30px; top: 230px; background-color: #996633; }
+        .node5 { left: 45%; top: 230px; background-color: #ffcc00; }
+        .node6 { right: 30px; top: 230px; background-color: #330099; }
+        .node7 { left: 30px; top: 380px; background-color: #006699; }
+        .node8 { right: 30px; top: 380px; background-color: #cc3300; }
+        
+        /* Content positioning */
+        .content1 { left: 60px; top: 30px; }
+        .content2 { left: 47%; top: 30px; }
+        .content3 { left: 60px; top: 180px; }
+        .content4 { left: 47%; top: 180px; }
+        .content5 { left: 60px; top: 330px; }
+        .content6 { left: 47%; top: 330px; }
+        
+        /* Icon colors */
+        .icon1 { color: #000033; }
+        .icon2 { color: #009966; }
+        .icon3 { color: #996633; }
+        .icon4 { color: #ffcc00; }
+        .icon5 { color: #006699; }
+        .icon6 { color: #cc3300; }
+        
+        .icon-shape {
+            width: 40px;
+            height: 40px;
+            background-color: currentColor;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .icon-shape.drop {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+        
+        .icon-shape.diamond {
+            transform: rotate(45deg);
+        }
+        
+        .icon-inner {
+            color: white;
+            font-size: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .icon-diamond .icon-inner {
+            transform: rotate(-45deg);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-content {
+                width: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <div class="timeline">
-    <div class="event left">
-      <h3>ورشة الخط العربي</h3>
-      <p>الإثنين - 6:00 مساءً</p>
+    <div class="timeline-container">
+        <div class="timeline-path">
+            <div class="timeline-line top"></div>
+            <div class="timeline-curve-right"></div>
+            <div class="timeline-line middle"></div>
+            <div class="timeline-curve-left"></div>
+            <div class="timeline-line bottom"></div>
+            <div class="future-line"></div>
+            
+            <!-- Nodes -->
+            <div class="timeline-node node1"></div>
+            <div class="timeline-node node2"></div>
+            <div class="timeline-node node3"></div>
+            <div class="timeline-node node4"></div>
+            <div class="timeline-node node5"></div>
+            <div class="timeline-node node6"></div>
+            <div class="timeline-node node7"></div>
+            <div class="timeline-node node8"></div>
+            
+            <!-- Content -->
+            <div class="timeline-content content1">
+                <div class="timeline-icon icon1">
+                    <div class="icon-shape drop">
+                        <div class="icon-inner">💡</div>
+                    </div>
+                </div>
+                <div class="timeline-title" style="color: #000033;">SAMPLE TEXT #01</div>
+                <div class="timeline-date">1900 - 1920</div>
+                <div class="timeline-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            </div>
+            
+            <div class="timeline-content content2">
+                <div class="timeline-icon icon2">
+                    <div class="icon-shape drop">
+                        <div class="icon-inner">📍</div>
+                    </div>
+                </div>
+                <div class="timeline-title" style="color: #009966;">SAMPLE TEXT #02</div>
+                <div class="timeline-date">1920 - 1940</div>
+                <div class="timeline-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            </div>
+            
+            <div class="timeline-content content3">
+                <div class="timeline-icon icon3">
+                    <div class="icon-shape drop">
+                        <div class="icon-inner">🔍</div>
+                    </div>
+                </div>
+                <div class="timeline-title" style="color: #996633;">SAMPLE TEXT #03</div>
+                <div class="timeline-date">1940 - 1960</div>
+                <div class="timeline-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            </div>
+            
+            <div class="timeline-content content4">
+                <div class="timeline-icon icon4">
+                    <div class="icon-shape diamond">
+                        <div class="icon-inner icon-diamond">👥</div>
+                    </div>
+                </div>
+                <div class="timeline-title" style="color: #ffcc00;">SAMPLE TEXT #04</div>
+                <div class="timeline-date">1960 - 1980</div>
+                <div class="timeline-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            </div>
+            
+            <div class="timeline-content content5">
+                <div class="timeline-icon icon5">
+                    <div class="icon-shape drop">
+                        <div class="icon-inner">🔄</div>
+                    </div>
+                </div>
+                <div class="timeline-title" style="color: #006699;">SAMPLE TEXT #05</div>
+                <div class="timeline-date">2000 - 2010</div>
+                <div class="timeline-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            </div>
+            
+            <div class="timeline-content content6">
+                <div class="timeline-icon icon6">
+                    <div class="icon-shape drop">
+                        <div class="icon-inner">✉️</div>
+                    </div>
+                </div>
+                <div class="timeline-title" style="color: #cc3300;">SAMPLE TEXT #06</div>
+                <div class="timeline-date">1980 - 2000</div>
+                <div class="timeline-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            </div>
+        </div>
     </div>
 
-    <div class="event right">
-      <h3>أمسية شعرية</h3>
-      <p>الثلاثاء - 7:00 مساءً</p>
-    </div>
-
-    <div class="event left">
-      <h3>ندوة ثقافية</h3>
-      <p>الأربعاء - 5:00 مساءً</p>
-    </div>
-
-    <div class="event right">
-      <h3>حوار عن التراث</h3>
-      <p>الخميس - 8:00 مساءً</p>
-    </div>
-  </div>
-
+    <script>
+        // Optional: Add interactive elements here
+        document.querySelectorAll('.timeline-node').forEach(node => {
+            node.addEventListener('click', function() {
+                // You can add interaction like showing more details
+                console.log('Node clicked');
+            });
+        });
+    </script>
 </body>
 </html>
