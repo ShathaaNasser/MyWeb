@@ -1,47 +1,64 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital | Contact</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1> Contact</h1>
-        <nav class="container">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="departments.html">Departments</a></li>
-                <li><a href="Appointment.html">Appointment</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    </head>
-    <!DOCTYPE html>
-    <html lang="ar">
-    <head>
-      <meta charset="UTF-8">
-    </head>
-    <body>
-    
-      <h1>تقويم شهر مايو 2025</h1>
-      <div class="calendar" id="calendar"></div>
-    
-      <div class="events" id="events">
-        <h2>الأحداث اليومية</h2>
-        <div id="eventList">اختر يوماً لعرض الأحداث</div>
-      </div>
-    
+جميل جدًا! إليك نموذج أولي بـ *HTML + CSS* لتصميم خط زمني مشابه للرسم الذي أرسلته — بترتيب متعرج (يمين ويسار) دون صور، مع استخدام مستطيلات ودوائر تمثل الفعاليات:
 
-    </body>
-    </html>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Hospital. All rights reserved. Designed by Shathaa and Ruqaya</p>
-        </div>
-    </footer>
-</body>
-</html>
+---
+
+✅ *نموذج HTML + CSS لخط زمني متعرج للأحداث الثقافية:*
+
+```html
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>الخط الزمني للفعاليات الثقافية</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #f7f7f7;
+      padding: 40px;
+      direction: rtl;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 0 auto;
+      padding: 20px 0;
+      width: 90%;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: #bbb;
+      top: 0;
+      bottom: 0;
+      right: 50%;
+      transform: translateX(50%);
+    }
+
+    .event {
+      position: relative;
+      width: 45%;
+      background: #fff;
+      padding: 15px 20px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .event::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #2196F3;
+      border-radius: 50%;
+      top: 20px;
+      border: 3px solid #fff;
+    }
+
+    .event.left {
+      left: 0;
+    }
+
+    .event.left::before {
