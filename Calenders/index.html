@@ -1,10 +1,4 @@
-جميل جدًا! إليك نموذج أولي بـ *HTML + CSS* لتصميم خط زمني مشابه للرسم الذي أرسلته — بترتيب متعرج (يمين ويسار) دون صور، مع استخدام مستطيلات ودوائر تمثل الفعاليات:
 
----
-
-✅ *نموذج HTML + CSS لخط زمني متعرج للأحداث الثقافية:*
-
-```html
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -12,69 +6,70 @@
   <title>الخط الزمني للفعاليات الثقافية</title>
   <style>
     body {
-      font-family: 'Cairo', sans-serif;
-      background: #f7f7f7;
-      padding: 40px;
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f0;
       direction: rtl;
+      padding: 50px;
     }
 
     .timeline {
       position: relative;
-      margin: 0 auto;
-      padding: 20px 0;
-      width: 90%;
+      max-width: 800px;
+      margin: auto;
     }
 
-    .timeline::before {
+    .timeline::after {
       content: '';
       position: absolute;
-      width: 4px;
-      background: #bbb;
+      width: 6px;
+      background-color: #bbb;
       top: 0;
       bottom: 0;
       right: 50%;
-      transform: translateX(50%);
+      margin-right: -3px;
     }
 
     .event {
+      padding: 10px 20px;
       position: relative;
+      background-color: white;
+      border-radius: 8px;
       width: 45%;
-      background: #fff;
-      padding: 15px 20px;
-      border-radius: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       margin-bottom: 40px;
     }
 
     .event::before {
       content: '';
       position: absolute;
-      width: 16px;
-      height: 16px;
-      background: #2196F3;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
-      top: 20px;
+      background-color: #2196F3;
+      top: 10px;
       border: 3px solid #fff;
+      z-index: 1;
     }
 
     .event.left {
-      left: 0;
+      right: 55%;
     }
 
     .event.left::before {
-    right: -28px;
+      right: -30px;
     }
 
     .event.right {
-      left: 55%;
+    left: 55%;
     }
 
     .event.right::before {
-      left: -28px;
+      left: -30px;
     }
 
     h3 {
       margin: 0 0 10px;
+      font-size: 18px;
       color: #333;
     }
 
@@ -90,35 +85,24 @@
   <div class="timeline">
     <div class="event left">
       <h3>ورشة الخط العربي</h3>
-      <p>الإثنين، الساعة 6 مساءً</p>
+      <p>الإثنين - 6:00 مساءً</p>
     </div>
 
     <div class="event right">
       <h3>أمسية شعرية</h3>
-      <p>الثلاثاء، الساعة 7 مساءً</p>
+      <p>الثلاثاء - 7:00 مساءً</p>
     </div>
 
     <div class="event left">
       <h3>ندوة ثقافية</h3>
-      <p>الأربعاء، الساعة 5 مساءً</p>
+      <p>الأربعاء - 5:00 مساءً</p>
     </div>
 
     <div class="event right">
-      <h3>حوار مفتوح عن التراث</h3>
-      <p>الخميس، الساعة 8 مساءً</p>
+      <h3>حوار عن التراث</h3>
+      <p>الخميس - 8:00 مساءً</p>
     </div>
   </div>
 
 </body>
 </html>
-```
-
----
-
-💡 مميزات هذا النموذج:
-- متجاوب ويعمل على جميع الشاشات.
-- بسيط وبدون صور.
-- مظهر أنيق لجمهور مثقف.
-- يمكن إضافة تأثيرات أو نوافذ منبثقة لاحقًا.
-
-هل ترغب بإضافة تفاعل عند النقر على الحدث لعرض تفاصيل أكثر؟
