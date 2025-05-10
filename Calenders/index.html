@@ -36,17 +36,62 @@
             position: absolute;
             width: 180px;
             height: 80px;
-            background-color: white;
-            border: 2px solid #5a2875;
+            perspective: 1000px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .timeline-box-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .timeline-box.active .timeline-box-inner {
+            transform: rotateY(180deg) scale(1.5);
+            z-index: 100;
+        }
+        
+        .timeline-box-front, .timeline-box-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
             border-radius: 25px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
-            z-index: 10;
             text-align: center;
-            font-weight: bold;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-box-front {
+            background-color: white;
+            border: 2px solid #5a2875;
             color: #333;
+            font-weight: bold;
+        }
+        
+        .timeline-box-back {
+            background-color: #5a2875;
+            color: white;
+            transform: rotateY(180deg);
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+        
+        .timeline-box-back h3 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+        }
+        
+        .timeline-box-back p {
+            margin: 0;
+            font-size: 12px;
         }
         
         .timeline-marker {
@@ -175,16 +220,105 @@
         </svg>
         
         <!-- صناديق الخط الزمني -->
-        <div id="box1" class="timeline-box">المرحلة الأولى</div>
-        <div id="box2" class="timeline-box">المرحلة الثانية</div>
-        <div id="box3" class="timeline-box">المرحلة الثالثة</div>
-        <div id="box4" class="timeline-box">المرحلة الرابعة</div>
-        <div id="box5" class="timeline-box">المرحلة الخامسة</div>
-        <div id="box6" class="timeline-box">المرحلة السادسة</div>
-        <div id="box7" class="timeline-box">المرحلة السابعة</div>
-        <div id="box8" class="timeline-box">المرحلة الثامنة</div>
-        <div id="box9" class="timeline-box">المرحلة التاسعة</div>
-        <div id="box10" class="timeline-box">المرحلة العاشرة</div>
+        <div id="box1" class="timeline-box">
+            <div class="timeline-box-inner">
+                <div class="timeline-box-front">المرحلة الأولى</div>
+                <div class="timeline-box-back">
+                    <h3>المرحلة الأولى</h3>
+                    <p>تفاصيل إضافية عن المرحلة الأولى. يمكنك هنا إضافة معلومات أكثر تفصيلاً عن هذه المرحلة.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="box2" class="timeline-box">
+            <div class="timeline-box-inner">
+                <div class="timeline-box-front">المرحلة الثانية</div>
+                <div class="timeline-box-back">
+                    <h3>المرحلة الثانية</h3>
+                    <p>تفاصيل إضافية عن المرحلة الثانية. يمكنك هنا إضافة معلومات أكثر تفصيلاً عن هذه المرحلة.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="box3" class="timeline-box">
+            <div class="timeline-box-inner">
+                <div class="timeline-box-front">المرحلة الثالثة</div>
+                <div class="timeline-box-back">
+                    <h3>المرحلة الثالثة</h3>
+                    <p>تفاصيل إضافية عن المرحلة الثالثة. يمكنك هنا إضافة معلومات أكثر تفصيلاً عن هذه المرحلة.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="box4" class="timeline-box">
+            <div class="timeline-box-inner">
+                <div class="timeline-box-front">المرحلة الرابعة</div>
+                <div class="timeline-box-back">
+                    <h3>المرحلة الرابعة</h3>
+                    <p>تفاصيل إضافية عن المرحلة الرابعة. يمكنك هنا إضافة معلومات أكثر تفصيلاً عن هذه المرحلة.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="box5" class="timeline-box">
+            <div class="timeline-box-inner">
+                <div class="timeline-box-front">المرحلة الخامسة</div>
+                <div class="timeline-box-back">
+                    <h3>المرحلة الخامسة</h3>
+                    <p>تفاصيل إضافية عن المرحلة الخامسة. يمكنك هنا إضافة معلومات أكثر تفصيلاً عن هذه المرحلة.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="box6" class="timeline-box">
+            <div class="timeline-box-inner">
+                <div class="timeline-box-front">المرحلة السادسة</div>
+                <div class="timeline-box-back">
+                    <h3>المرحلة السادسة</h3>
+                    <p>تفاصيل إضافية عن المرحلة السادسة. يمكنك هنا إضافة معلومات أكثر تفصيلاً عن هذه المرحلة.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="box7" class="timeline-box">
+            <div class="timeline-box-inner">
+                <div class="timeline-box-front">المرحلة السابعة</div>
+                <div class="timeline-box-back">
+                    <h3>المرحلة السابعة</h3>
+                    <p>تفاصيل إضافية عن المرحلة السابعة. يمكنك هنا إضافة معلومات أكثر تفصيلاً عن هذه المرحلة.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="box8" class="timeline-box">
+            <div class="timeline-box-inner">
+                <div class="timeline-box-front">المرحلة الثامنة</div>
+                <div class="timeline-box-back">
+                    <h3>المرحلة الثامنة</h3>
+                    <p>تفاصيل إضافية عن المرحلة الثامنة. يمكنك هنا إضافة معلومات أكثر تفصيلاً عن هذه المرحلة.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="box9" class="timeline-box">
+            <div class="timeline-box-inner">
+                <div class="timeline-box-front">المرحلة التاسعة</div>
+                <div class="timeline-box-back">
+                    <h3>المرحلة التاسعة</h3>
+                    <p>تفاصيل إضافية عن المرحلة التاسعة. يمكنك هنا إضافة معلومات أكثر تفصيلاً عن هذه المرحلة.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="box10" class="timeline-box">
+            <div class="timeline-box-inner">
+                <div class="timeline-box-front">المرحلة العاشرة</div>
+                <div class="timeline-box-back">
+                    <h3>المرحلة العاشرة</h3>
+                    <p>تفاصيل إضافية عن المرحلة العاشرة. يمكنك هنا إضافة معلومات أكثر تفصيلاً عن هذه المرحلة.</p>
+                </div>
+            </div>
+        </div>
         
         <!-- علامات الخط الزمني -->
         <div id="marker1" class="timeline-marker"></div>
@@ -197,7 +331,8 @@
         <div id="marker8" class="timeline-marker"></div>
         <div id="marker9" class="timeline-marker"></div>
         <div id="marker10" class="timeline-marker"></div>
-    </
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // إضافة خاصية التفاعل للصناديق
@@ -205,14 +340,15 @@
             
             boxes.forEach(box => {
                 box.addEventListener('click', function() {
-                    this.classList.toggle('flipped');
-                    
-                    // إعادة تعيين جميع الصناديق الأخرى لحالتها الأصلية
+                    // إزالة الصنف النشط من جميع الصناديق الأخرى
                     boxes.forEach(otherBox => {
-                        if (otherBox !== this && otherBox.classList.contains('flipped')) {
-                            otherBox.classList.remove('flipped');
+                        if (otherBox !== this) {
+                            otherBox.classList.remove('active');
                         }
                     });
+                    
+                    // تبديل حالة الصندوق الحالي
+                    this.classList.toggle('active');
                 });
             });
         });
