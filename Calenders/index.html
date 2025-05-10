@@ -197,6 +197,25 @@
         <div id="marker8" class="timeline-marker"></div>
         <div id="marker9" class="timeline-marker"></div>
         <div id="marker10" class="timeline-marker"></div>
-    </div>
+    </
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة خاصية التفاعل للصناديق
+            const boxes = document.querySelectorAll('.timeline-box');
+            
+            boxes.forEach(box => {
+                box.addEventListener('click', function() {
+                    this.classList.toggle('flipped');
+                    
+                    // إعادة تعيين جميع الصناديق الأخرى لحالتها الأصلية
+                    boxes.forEach(otherBox => {
+                        if (otherBox !== this && otherBox.classList.contains('flipped')) {
+                            otherBox.classList.remove('flipped');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
