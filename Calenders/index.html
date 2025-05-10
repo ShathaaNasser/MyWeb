@@ -17,8 +17,8 @@
         }
         
         .timeline-container {
-            width: 800px;
-            height: 600px;
+            width: 1000px;
+            height: 900px;
             position: relative;
             margin: 0 auto;
         }
@@ -58,64 +58,120 @@
             z-index: 5;
         }
         
-        /* مواقع الصناديق */
+        /* مواقع الصناديق - الصف الأول */
         #box1 {
             top: 50px;
-            left: 80px;
+            left: 50px;
         }
         
         #box2 {
             top: 50px;
-            right: 80px;
+            left: 400px;
         }
         
         #box3 {
-            top: 230px;
-            left: 320px;
+            top: 50px;
+            right: 50px;
         }
         
+        /* مواقع الصناديق - الصف الثاني */
         #box4 {
-            top: 410px;
-            left: 80px;
+            top: 250px;
+            left: 200px;
         }
         
         #box5 {
-            top: 410px;
-            right: 80px;
+            top: 250px;
+            right: 200px;
         }
         
-        /* مواقع العلامات */
+        /* مواقع الصناديق - الصف الثالث */
+        #box6 {
+            top: 450px;
+            left: 50px;
+        }
+        
+        #box7 {
+            top: 450px;
+            left: 400px;
+        }
+        
+        #box8 {
+            top: 450px;
+            right: 50px;
+        }
+        
+        /* مواقع الصناديق - الصف الرابع */
+        #box9 {
+            top: 650px;
+            left: 200px;
+        }
+        
+        #box10 {
+            top: 650px;
+            right: 200px;
+        }
+        
+        /* مواقع العلامات - الصف الأول */
         #marker1 {
             top: 145px;
-            left: 160px;
+            left: 130px;
         }
         
         #marker2 {
             top: 145px;
-            right: 160px;
+            left: 480px;
         }
         
         #marker3 {
-            top: 325px;
-            left: 400px;
+            top: 145px;
+            right: 130px;
         }
         
+        /* مواقع العلامات - الصف الثاني */
         #marker4 {
-            top: 505px;
-            left: 160px;
+            top: 345px;
+            left: 280px;
         }
         
         #marker5 {
-            top: 505px;
-            right: 160px;
+            top: 345px;
+            right: 280px;
+        }
+        
+        /* مواقع العلامات - الصف الثالث */
+        #marker6 {
+            top: 545px;
+            left: 130px;
+        }
+        
+        #marker7 {
+            top: 545px;
+            left: 480px;
+        }
+        
+        #marker8 {
+            top: 545px;
+            right: 130px;
+        }
+        
+        /* مواقع العلامات - الصف الرابع */
+        #marker9 {
+            top: 745px;
+            left: 280px;
+        }
+        
+        #marker10 {
+            top: 745px;
+            right: 280px;
         }
     </style>
 </head>
 <body>
     <div class="timeline-container">
         <!-- الخط الزمني -->
-        <svg class="timeline-path" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 150,150 H 650 C 750,150 750,350 650,350 H 150 C 50,350 50,550 150,550 H 650" />
+        <svg class="timeline-path" viewBox="0 0 1000 900" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 100,150 H 900 C 1000,150 1000,350 900,350 H 100 C 0,350 0,550 100,550 H 900 C 1000,550 1000,750 900,750 H 100" />
         </svg>
         
         <!-- صناديق الخط الزمني -->
@@ -124,6 +180,11 @@
         <div id="box3" class="timeline-box">المرحلة الثالثة</div>
         <div id="box4" class="timeline-box">المرحلة الرابعة</div>
         <div id="box5" class="timeline-box">المرحلة الخامسة</div>
+        <div id="box6" class="timeline-box">المرحلة السادسة</div>
+        <div id="box7" class="timeline-box">المرحلة السابعة</div>
+        <div id="box8" class="timeline-box">المرحلة الثامنة</div>
+        <div id="box9" class="timeline-box">المرحلة التاسعة</div>
+        <div id="box10" class="timeline-box">المرحلة العاشرة</div>
         
         <!-- علامات الخط الزمني -->
         <div id="marker1" class="timeline-marker"></div>
@@ -131,6 +192,11 @@
         <div id="marker3" class="timeline-marker"></div>
         <div id="marker4" class="timeline-marker"></div>
         <div id="marker5" class="timeline-marker"></div>
+        <div id="marker6" class="timeline-marker"></div>
+        <div id="marker7" class="timeline-marker"></div>
+        <div id="marker8" class="timeline-marker"></div>
+        <div id="marker9" class="timeline-marker"></div>
+        <div id="marker10" class="timeline-marker"></div>
     </div>
 </body>
 </html>
