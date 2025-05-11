@@ -38,7 +38,12 @@
             height: 80px;
             perspective: 1000px;
             cursor: pointer;
+            transition: z-index 0.01s;
             z-index: 10;
+        }
+        
+        .timeline-box.active {
+            z-index: 100; /* Ensure active box is on top */
         }
         
         .timeline-box-inner {
@@ -51,7 +56,6 @@
         
         .timeline-box.active .timeline-box-inner {
             transform: rotateY(180deg) scale(1.5);
-            z-index: 100;
         }
         
         .timeline-box-front, .timeline-box-back {
